@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Fibonacci até N termos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Fibonacci até N termos</h1>
+  <input type="text" id="numero" placeholder="Digite um número" />
+  <button onclick="verificar()">Verificar</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function verificar() {
+      const num = parseInt(document.getElementById("numero").value);
+      const resultado = document.getElementById("resultado");
+
+      if (isNaN(num) || num <= 0) {
+        resultado.textContent = "Por favor, digite um número válido maior que 0.";
+        return;
+      }
+
+      let fib = [0, 1];
+      for (let i = 2; i < num; i++) {/*Esse for começa do índice 2 (porque 0 e 1 já estão prontos)*/
+        fib[i] = fib[i - 1] + fib[i - 2];/*fib[i - 1] → valor anterior.fib[i - 2] → valor antes do anterior.*/
+      }
+
+      resultado.textContent = `Os primeiros ${num} termos da sequência de Fibonacci são: ${fib.slice(0, num).join(", ")}`;
+      
+    }
+  </script>
+
+</body>
+</html>
+

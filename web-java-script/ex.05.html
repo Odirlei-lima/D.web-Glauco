@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Somar números até digitar ZERO</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Soma até digitar ZERO</h1>
+    <button onclick="somarnumeros()">Iniciar a Soma</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function somarnumeros() {
+      let soma = 0;
+      let num;
+
+      do {
+        num = parseInt(prompt("Digite um número para ser somado (ou 0 para sair):")); /*prompt exibe uma tela para entrada de dados*/
+        /*parseInt converte a string retornada pelo prompt em um número inteiro*/
+        /*isNaN verifica se o valor não é um número*/
+        /*NaN significa Not a Number*/
+        if (!isNaN(num)) {
+          soma += num;
+        } else {
+          alert("Por favor, digite um número válido.");
+        }
+      } while (num !== 0);/*repete enquanto o número digitado for diferente de 0*/
+      /*se o número digitado for 0, o loop termina*/
+
+      const resultado = document.getElementById("resultado");
+      resultado.textContent = `A soma dos números digitados é: ${soma}`;
+    }
+  </script>
+
+</body>
+</html>
+
